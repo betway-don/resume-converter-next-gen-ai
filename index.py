@@ -11,7 +11,7 @@ from docx.oxml.ns import qn
 OPENAI_API_KEY = "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"
 # OPENROUTER_API_KEY = "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"
 
-TEMPLATE_PATH = "ravan.docx"
+TEMPLATE_PATH = "chakli.docx"
 OUTPUT_PATH = os.path.join("outputs", "Final_Generated_Resume.docx")
 PDF_PATH = "test.pdf"
 
@@ -69,7 +69,7 @@ def extract_text_from_pdf(pdf_path, status_callback=None):
     print(msg)
     if status_callback: status_callback(msg)
     
-    text = ""
+    text = "" 
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
             extracted = page.extract_text()
@@ -203,8 +203,11 @@ Return this JSON — extract every detail exactly as it appears:
       Only write a new summary if raw_summary is completely empty.
 
     education[]:
-      Include only engineering degree and above.
+      Include ALL education entries (including school, intermediate, and college degrees).
+      Each entry MUST include the full qualification name, institution, and score.
       Each entry: degree (string), year (string).
+      Set 'degree' to the full text of the degree/qualification, institution, and score (e.g. "B.Tech (CSE) – CMR College, JNTUH | 78%").
+      Set 'year' to the year/duration (e.g. "2016").
 
     skills[]:
       **CRITICAL**: Populate this list using ONLY the content from "explicit_skills_section".
@@ -234,7 +237,7 @@ Return this JSON — extract every detail exactly as it appears:
         Once as "s"   → fills the short Experience Summary table
         Once as "exp" → fills the detailed Professional Experience section
       Therefore every object MUST contain ALL keys listed below.
-      Max 5 entries. Most recent first.
+      Include ALL work experience entries. Most recent first. Do not skip any.
 
       SHORT TABLE KEYS (used by the Experience Summary table):
         role         → Exact job title string
@@ -526,8 +529,8 @@ def generate_doc(data, template_file, output_file, status_callback=None):
       # Enforce limits
     # if len(data['skills']) > 7:
     #     data['skills'] = data['skills'][:7]
-    if len(data['experience_summary']) > 5:
-        data['experience_summary'] = data['experience_summary'][:5]
+    # if len(data['experience_summary']) > 5:
+    #     data['experience_summary'] = data['experience_summary'][:5]
 
     # Render Jinja2 template
     doc = DocxTemplate(template_file)
