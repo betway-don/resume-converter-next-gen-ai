@@ -11,7 +11,7 @@ from docx.oxml.ns import qn
 OPENAI_API_KEY = "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"
 # OPENROUTER_API_KEY = "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"
 
-TEMPLATE_PATH = "chakli.docx"
+TEMPLATE_PATH = "somu_fixed.docx"
 OUTPUT_PATH = os.path.join("outputs", "Final_Generated_Resume.docx")
 PDF_PATH = "test.pdf"
 
@@ -242,8 +242,9 @@ Return this JSON — extract every detail exactly as it appears:
       SHORT TABLE KEYS (used by the Experience Summary table):
         role         → Exact job title string
         years        → Date range string, e.g. "Sep 2021 - Present"
-        skills       → 5-8 key skills for this role as a comma-separated STRING
-                       (not a list — a single string like "Angular, Java, AWS, Git")
+        skills       → 5-8 key skills for this role as a comma-separated STRING ONLY.
+                       (Example: "Angular, Java, AWS, Git")
+                       CRITICAL: Do NOT add newlines or append achievements to this string!
         achievements → List of 2-3 SHORT one-line bullet strings for this role.
                        Keep each to one line. Use exact numbers/% from the resume.
 
@@ -405,6 +406,9 @@ def sanitize_data(data):
             entry.setdefault(key, default)
             if entry[key] is None:
                 entry[key] = default
+            if isinstance(entry[key], list):
+                # Filter out pure whitespace/empty strings from lists so Jinja "if list" correctly evaluates to False
+                entry[key] = [item for item in entry[key] if isinstance(item, str) and item.strip() != ""]
 
     return data
 
