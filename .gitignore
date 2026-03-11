@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+uploads/
+outputs/
+test_outputs/
+node_modules/
+*.pdf
+push_error*

@@ -1,0 +1,386 @@
+{
+  "personal_info": {
+    "name": "",
+    "email": "",
+    "phone": "",
+    "location": ""
+  },
+  "summary": "As a Technical Lead and Senior Software Engineer with over a decade of experience in software development, I\nspecialize in .NET technologies, including .NET Framework, .NET Core,C# and SQL Server. I hold a Bachelor's degree in\nComputer Science and a Master's degree in Engineering and Technology Management, which provide me with a solid\nfoundation in both technical and strategic aspects of software development.\nWith a strong understanding of software design principles and deep familiarity with best practices such as SOLID, DRY,\nand design patterns, I design scalable, maintainable, and high-performance solutions. My technical expertise extends\nacross a diverse tech stack, including Angular, React, HTML, CSS, Bootstrap, MVC, RESTful APIs, Web API, SOAP, MVVM,\nDocker, Git, PL/SQL, PostgreSQL, .Net, C# , Kafka and Agile methodologies and Azure Cloud.\nI have consistently delivered value to organizations by driving architectural innovation and software development\nexcellence. In addition to my technical contributions, I have successfully led small to mid-sized teams, helping them\nunlock their full potential and achieve their goals. My holistic approach, from design to implementation, fosters\ncollaboration, accelerates delivery, and ensures high-quality, future-proof solutions that align with business objectives.",
+  "education": [
+    {
+      "degree": "ENGINEERING AND TECHNOLOGY MANAGEMENT \u2013 Dogus University",
+      "year": "2017 \u2013 2018"
+    },
+    {
+      "degree": "COMPUTER ENGINEERING \u2013 Dogus University",
+      "year": "2009 \u2013 2014"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Backend & APIs",
+      "primary": "C#, .NET Core, .NET Framework, Web API, RESTful API, MVC",
+      "secondary": "Kafka, Web Development, Design Patterns, Object-Oriented Programming, Inheritance"
+    },
+    {
+      "category": "Frontend Frameworks",
+      "primary": "Angular, React.js",
+      "secondary": "JavaScript, JQuery, Flutter, Dart"
+    },
+    {
+      "category": "Databases & Data",
+      "primary": "SQL, JSON, XML",
+      "secondary": ""
+    },
+    {
+      "category": "Markup & Styling",
+      "primary": "HTML5, CSS, Bootstrap",
+      "secondary": ""
+    },
+    {
+      "category": "Cloud & DevOps",
+      "primary": "Azure Cloud, Azure DevOps, Docker, CI/CD",
+      "secondary": "Jenkins"
+    },
+    {
+      "category": "Tools & Methodologies",
+      "primary": "Git, Agile (Scrum), Postman",
+      "secondary": ""
+    }
+  ],
+  "expertise_areas": [
+    "Full Stack .NET Development",
+    "Cloud Architecture (Azure)",
+    "Technical Leadership & Agile Delivery"
+  ],
+  "certifications": [
+    "MICROSOFT CERTIFIED: AZURE DEVELOPER ASSOCIATE",
+    "MICROSOFT CERTIFIED: AZURE FUNDAMENTALS"
+  ],
+  "awards": [
+    "1st Graduation (Master Degree) \u2013 Dogus University",
+    "2nd Graduation (Bachelor Degree) \u2013 Dogus University"
+  ],
+  "experience_summary": [
+    {
+      "role": "SENIOR SOFTWARE ENGINEER / TECHNICAL LEAD",
+      "years": "Jul 2023 - Present",
+      "skills": "React, TypeScript, .NET Core, C#, Azure Functions, Azure Cosmos DB, Docker, Git",
+      "achievements": [
+        "Led design of modern front-end solutions using React and TypeScript.",
+        "Integrated key Azure Services including Functions, Storage, and Cosmos DB.",
+        "Managed Git repositories and CI/CD pipelines for Docker-based deployments."
+      ],
+      "project_name": "FISKALTRUST GMBH",
+      "organisation": "FISKALTRUST GMBH",
+      "duration": "01/07/2023 \u2013 Current",
+      "project_description": "Experienced in leading software design and development within international and Agile environments, focusing on delivering scalable, maintainable, and high-performance applications. Combining deep technical expertise with strong leadership skills to drive architectural decisions, mentor teams, and ensure delivery excellence.",
+      "key_activities": [
+        "Collaborating with cross-functional teams to define and implement software architecture and project structures.",
+        "Designing and developing modern front-end solutions using React and TypeScript.",
+        "Implementing and integrating Azure Services, including Azure Functions, Azure Storage, Azure Cosmos DB, and Azure Key Vault.",
+        "Designing and developing RESTful APIs using .NET Core and .NET Framework.",
+        "Writing and maintaining unit tests, performing code reviews, and leading refactoring initiatives.",
+        "Managing Git repositories, CI/CD pipelines, and Docker-based deployments.",
+        "Leading and mentoring development teams, promoting collaboration and technical excellence.",
+        "Applying Agile (Scrum) methodologies to enhance productivity and ensure continuous improvement."
+      ],
+      "tools_used": [
+        "Azure DevOps",
+        "Docker",
+        "Git"
+      ],
+      "technologies_used": [
+        "C#",
+        ".NET Framework",
+        ".NET Core",
+        "MSSQL",
+        "Azure Storage",
+        "Azure Functions",
+        "React",
+        "TypeScript",
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "Microservices",
+        "LINQ",
+        "Entity Framework",
+        "SQL Server"
+      ],
+      "skills_used": [
+        "Scrum",
+        "CI/CD",
+        "Code Review",
+        "Mentoring"
+      ],
+      "major_achievements": [
+        "Led the design and migration of a legacy MVC front-end to a modern, maintainable React application.",
+        "Architected and implemented a suite of Azure Services (Functions, Storage, Cosmos DB, Key Vault) for a scalable cloud solution.",
+        "Drove team productivity and continuous improvement by applying Agile (Scrum) methodologies."
+      ],
+      "client_appreciation": []
+    },
+    {
+      "role": "SOFTWARE ARCHITECT / TECHNICAL LEAD",
+      "years": "Apr 2022 - Jun 2023",
+      "skills": ".NET Core, C#, Angular, React, Azure DevOps, AWS, Docker, Microservices",
+      "achievements": [
+        "Architected and implemented scalable enterprise project structures using .NET Core.",
+        "Designed and integrated solutions utilizing both Azure and AWS cloud services.",
+        "Provided technical leadership, mentorship, and conducted code reviews to enforce standards."
+      ],
+      "project_name": "INTERTECH INFORMATION TECHNOLOGY AND MARKETING INC.",
+      "organisation": "INTERTECH INFORMATION TECHNOLOGY AND MARKETING INC.",
+      "duration": "04/2022 \u2013 06/2023",
+      "project_description": "Led the design and development of enterprise-scale software solutions using .NET technologies, driving architectural decisions and ensuring high-quality, maintainable code. Actively collaborated within an international, Agile environment to deliver secure, scalable, and high-performance systems.",
+      "key_activities": [
+        "Designed and developed complex applications using .NET Core and modern software design principles.",
+        "Architected and implemented scalable project structures aligned with best practices.",
+        "Designed, implemented, and integrated Azure Services and AWS-based solutions.",
+        "Built and optimized databases and data access layers using MSSQL and SQL Server.",
+        "Designed and developed dynamic front-end applications using Angular and React.",
+        "Integrated systems with multiple third-party APIs and services.",
+        "Participated in Scrum ceremonies and contributed to continuous Agile improvement.",
+        "Implemented unit testing frameworks (MSTest, xUnit) to maintain reliability and code coverage.",
+        "Collaborated with QA teams to ensure delivery met User Acceptance Criteria (UAC).",
+        "Provided technical leadership, mentorship, and architectural guidance to development teams.",
+        "Conducted code reviews, led refactoring efforts, and enforced coding standards.",
+        "Managed Git workflows and supported CI/CD automation pipelines using Azure DevOps and Docker.",
+        "Partnered with business stakeholders to align technical solutions with organizational objectives."
+      ],
+      "tools_used": [
+        "Azure DevOps",
+        "Docker",
+        "Git"
+      ],
+      "technologies_used": [
+        "C#",
+        ".NET Core",
+        "MSSQL",
+        "SQL Server",
+        "SOAP",
+        "Web Services",
+        "Azure Functions",
+        "Angular",
+        "React",
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "Microservices",
+        "LINQ",
+        "Entity Framework"
+      ],
+      "skills_used": [
+        "API Development",
+        "CI/CD",
+        "Scrum",
+        "Mentoring"
+      ],
+      "major_achievements": [
+        "Led the architectural design for enterprise-scale software solutions using .NET Core.",
+        "Successfully integrated systems with multiple third-party APIs and payment services.",
+        "Managed CI/CD automation pipelines using Azure DevOps and Docker for streamlined deployments."
+      ],
+      "client_appreciation": []
+    },
+    {
+      "role": "SENIOR SOFTWARE ENGINEER",
+      "years": "May 2020 - Apr 2022",
+      "skills": "C#, .NET Core, WPF, MVVM, Angular, TypeScript, Azure DevOps, SQL Server",
+      "achievements": [
+        "Managed end-to-end software projects, ensuring timely delivery across international teams.",
+        "Developed and maintained complex WPF applications using C# and the MVVM design pattern.",
+        "Designed and implemented modern front-end applications with Angular and TypeScript."
+      ],
+      "project_name": "ISRA VISION AG",
+      "organisation": "ISRA VISION AG",
+      "duration": "05/2020 \u2013 04/2022",
+      "project_description": "Served as a Senior Software Engineer responsible for managing software projects in Turkey while collaborating closely with an international development team. Focused on designing, developing, and maintaining robust enterprise applications using modern .NET technologies and front-end frameworks.",
+      "key_activities": [
+        "Managed end-to-end software projects, ensuring timely delivery and alignment with business objectives.",
+        "Developed new features and maintained WPF applications using C# and the MVVM design pattern.",
+        "Designed and implemented Angular applications with TypeScript to enhance usability and performance.",
+        "Built and maintained automation software to improve operational efficiency.",
+        "Coordinated and supported developers across international teams, facilitating smooth communication and collaboration.",
+        "Conducted code reviews, provided technical guidance, and ensured adherence to best practices.",
+        "Participated in recruitment processes, including technical interviews for new engineers.",
+        "Led problem-solving initiatives and contributed to system optimization.",
+        "Provided technical leadership and mentorship to team members across multiple locations."
+      ],
+      "tools_used": [
+        "Git",
+        "Azure DevOps"
+      ],
+      "technologies_used": [
+        "C#",
+        ".NET",
+        ".NET Core",
+        "MSSQL",
+        "SOAP",
+        "Web Services",
+        "Angular",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "LINQ",
+        "SQL Server",
+        "MVC"
+      ],
+      "skills_used": [
+        "API Development",
+        "System Integration",
+        "CI/CD",
+        "WPF",
+        "MVVM"
+      ],
+      "major_achievements": [
+        "Successfully managed software projects in Turkey while coordinating with international development teams.",
+        "Developed new automation software to enhance operational efficiency.",
+        "Contributed to recruitment by conducting technical interviews for new engineers."
+      ],
+      "client_appreciation": []
+    },
+    {
+      "role": "SENIOR SOFTWARE ENGINEER",
+      "years": "Mar 2019 - May 2020",
+      "skills": "C#, WPF, MVVM, PL/SQL, RESTful API, SOAP, .NET",
+      "achievements": [
+        "Designed and implemented the Commercial Load Allocation Migration project.",
+        "Developed and integrated SOAP and RESTful services for SAS system communication.",
+        "Led the development team, providing mentorship and technical direction."
+      ],
+      "project_name": "VAKIFBANK",
+      "organisation": "VAKIFBANK",
+      "duration": "03/2019 \u2013 05/2020",
+      "project_description": "Worked closely with business units and international teams to design, develop, and maintain enterprise applications. Led development efforts, mentored team members, and played a key role in bridging communication between technical and business stakeholders to ensure successful project delivery.",
+      "key_activities": [
+        "Collaborated with business units to understand requirements and translate them into technical solutions.",
+        "Designed and implemented the Commercial Load Allocation Migration project, modernizing legacy systems.",
+        "Developed and integrated SOAP and RESTful services for SAS system communication.",
+        "Led the development team, providing mentorship and technical direction.",
+        "Maintained and enhanced existing WPF applications built with MVVM and PL/SQL.",
+        "Participated in Scrum ceremonies and contributed to Agile project execution.",
+        "Acted as a liaison between business stakeholders and development teams, ensuring clear alignment on deliverables.",
+        "Conducted code reviews, enforced refactoring standards, and promoted software quality best practices."
+      ],
+      "tools_used": [
+        "ALM",
+        "TFS"
+      ],
+      "technologies_used": [
+        "C#",
+        "WPF",
+        "PL/SQL",
+        ".NET",
+        "LINQ"
+      ],
+      "skills_used": [
+        "MVVM",
+        "RESTful API",
+        "API Development",
+        "Project Integration",
+        "Multithreading",
+        "Project Management",
+        "Mentoring"
+      ],
+      "major_achievements": [
+        "Led the modernization of legacy systems through the Commercial Load Allocation Migration project.",
+        "Maintained and enhanced critical WPF applications for the bank's commercial operations.",
+        "Acted as a primary liaison between business stakeholders and development teams to ensure project alignment."
+      ],
+      "client_appreciation": []
+    },
+    {
+      "role": "SOFTWARE ENGINEER",
+      "years": "Dec 2017 - Mar 2019",
+      "skills": "C#, RESTful API, MVC, NHibernate, SQL Server, Bootstrap, Git",
+      "achievements": [
+        "Developed backend components for a new HR Management Application.",
+        "Designed and built the database architecture for the HR platform from the ground up.",
+        "Implemented unit tests and conducted code reviews to ensure high code quality."
+      ],
+      "project_name": "INVENTIV",
+      "organisation": "INVENTIV",
+      "duration": "12/2017 \u2013 03/2019",
+      "project_description": "Contributed to the design and development of an HR Management Application, focusing on backend services, database architecture, and administrative web interfaces. Worked in an Agile environment to deliver scalable, maintainable, and testable solutions.",
+      "key_activities": [
+        "Developed backend components for the HR Management Application, improving functionality and performance.",
+        "Designed and implemented the administrative web interface to manage core HR operations.",
+        "Designed and built the database architecture for HR data storage and management.",
+        "Followed Agile methodologies, participating in sprint planning and daily stand-ups.",
+        "Implemented unit tests to ensure code quality and reliability.",
+        "Conducted code reviews to maintain consistency and enforce coding best practices."
+      ],
+      "tools_used": [
+        "Git"
+      ],
+      "technologies_used": [
+        "C#",
+        "NHibernate",
+        "Castle Windsor",
+        "Bootstrap",
+        "HTML",
+        "CSS",
+        "SQL Server",
+        "LINQ"
+      ],
+      "skills_used": [
+        "RESTful API",
+        "MVC",
+        "Design Patterns",
+        "Agile",
+        "Unit Testing"
+      ],
+      "major_achievements": [
+        "Key contributor to the development of a new HR Management Application, from backend services to database architecture.",
+        "Designed and implemented the full administrative web interface for core HR operations.",
+        "Maintained high code quality and consistency through diligent unit testing and code reviews in an Agile workflow."
+      ],
+      "client_appreciation": []
+    },
+    {
+      "role": "SOFTWARE ENGINEER",
+      "years": "Dec 2014 - Dec 2017",
+      "skills": "C#, .NET, Windows Forms, Web Applications, MSSQL, PL/SQL, OCR/MICR Integration",
+      "achievements": [
+        "Designed and implemented multiple new software projects from scratch.",
+        "Integrated OCR and MICR SDKs for advanced document and data processing.",
+        "Conducted customer needs analysis to translate requirements into technical specifications."
+      ],
+      "project_name": "ETB ELECTRONICS",
+      "organisation": "ETB ELECTRONICS",
+      "duration": "12/2014 \u2013 12/2017",
+      "project_description": "Worked on full-cycle software development, from customer requirement analysis to implementation and integration. Designed and delivered new projects from scratch while maintaining and enhancing existing products to meet evolving business needs.",
+      "key_activities": [
+        "Designed and implemented greenfield (from scratch) software projects, ensuring scalability and maintainability.",
+        "Supported and maintained existing products, resolving issues and improving performance.",
+        "Conducted customer needs analysis to translate business requirements into technical specifications.",
+        "Developed new APIs and web services to enable system integration and data exchange.",
+        "Integrated OCR and MICR SDKs into projects for advanced document and data processing.",
+        "Acted as a key liaison between customers and the development team, ensuring clear communication and timely delivery."
+      ],
+      "tools_used": [],
+      "technologies_used": [
+        "C#",
+        ".NET",
+        "Windows Forms Applications",
+        "Web Applications",
+        "MSSQL",
+        "PL/SQL",
+        "Entity Framework"
+      ],
+      "skills_used": [
+        "System Integration",
+        "API Development",
+        "Mobile Backend"
+      ],
+      "major_achievements": [
+        "Successfully delivered multiple greenfield software projects from initial concept to full implementation.",
+        "Enhanced system capabilities by integrating specialized OCR and MICR SDKs for document processing.",
+        "Served as the key technical point of contact between customers and the development team."
+      ],
+      "client_appreciation": []
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zensar AI Resume Generation</title>
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="/static/style.css">
+
+  <!-- Docx Preview Library -->
+  <script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
+  <script src="https://unpkg.com/docx-preview/dist/docx-preview.min.js"></script>
+  <!-- Add soft background animations -->
+  <style>
+    @keyframes float1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(30px, -50px) scale(1.1);
+      }
+
+      66% {
+        transform: translate(-20px, 20px) scale(0.9);
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(-30px, 50px) scale(1.15);
+      }
+
+      66% {
+        transform: translate(20px, -20px) scale(0.85);
+      }
+    }
+
+    .animate-float-1 {
+      animation: float1 20s ease-in-out infinite;
+    }
+
+    .animate-float-2 {
+      animation: float2 25s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-[#050505] text-brand-accent antialiased flex flex-col items-center justify-center min-h-screen p-4 sm:p-8 relative overflow-hidden">
+
+  <!-- Subtle, floating ambient lights -->
+  <div
+    class="fixed top-[0%] left-[-10%] w-[50%] h-[50%] bg-blue-500/10 blur-[140px] rounded-full pointer-events-none animate-float-1">
+  </div>
+  <div
+    class="fixed bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-indigo-500/10 blur-[150px] rounded-full pointer-events-none animate-float-2">
+  </div>
+
+  <!-- Main Container -->
+  <main class="w-full max-w-3xl animate-fade-in-up relative z-10">
+    <!-- Premium Glass Panel with inner glow -->
+    <div
+      class="bg-white/[0.02] backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] rounded-3xl relative overflow-hidden ring-1 ring-white/5 inset-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-white-[0.04] to-transparent pointer-events-none"></div>
+
+      <div class="p-10 sm:p-14 flex flex-col items-center text-center relative z-10">
+
+        <!-- Typewriter Hero Section -->
+        <div class="mb-12 text-center min-h-[5rem] flex flex-col items-center justify-center">
+          <h1
+            class="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight leading-tight text-white m-0 drop-shadow-sm"
+            id="typewriter-text">
+            <!-- Text will be injected via JS -->
+          </h1>
+          <p class="mt-4 text-brand-secondary/80 text-base font-light tracking-wide opacity-0 transition-opacity duration-1000"
+            id="subtitle-text">
+            The pinnacle of automated resume tailoring. Powered by advanced AI models.
+          </p>
+        </div>
+
+        <!-- Upload Zone -->
+        <div id="drop-zone" class="w-full max-w-xl group relative">
+          <div
+            class="absolute inset-0 bg-white/[0.03] rounded-2xl scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out border border-white/10 pointer-events-none shadow-[inset_0_0_20px_rgba(255,255,255,0.02)]">
+          </div>
+          <div
+            class="border border-dashed border-white/20 rounded-2xl p-12 cursor-pointer transition-colors duration-300 group-hover:border-white/50 bg-black/20 hover:bg-black/40 w-full flex flex-col items-center">
+
+            <div class="mb-5 text-white/40 group-hover:text-white/90 transition-colors duration-300 drop-shadow-md">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5">
+                </path>
+              </svg>
+            </div>
+            <span class="text-lg font-medium tracking-wide text-white/90">Drop candidate PDF</span>
+            <span class="text-sm text-white/40 mt-1.5 font-light">or click to browse local files</span>
+
+            <input type="file" id="file-input" accept=".pdf" class="hidden">
+          </div>
+        </div>
+
+        <!-- Selected File Info -->
+        <div id="file-info-container"
+          class="hidden mt-6 w-full max-w-xl flex items-center justify-between bg-white/5 border border-white/10 rounded-xl p-4">
+          <div class="flex items-center space-x-3 overflow-hidden">
+            <svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span id="file-info" class="text-sm font-medium text-white/90 truncate">resume.pdf</span>
+          </div>
+          <button id="clear-file"
+            class="text-brand-secondary hover:text-white text-sm focus:outline-none transition-colors ml-4 shrink-0">Remove</button>
+        </div>
+
+        <!-- Generate Button -->
+        <button id="convert-btn"
+          class="hidden mt-8 w-full max-w-xl bg-white text-black font-medium tracking-wide py-4 px-8 rounded-xl hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all shadow-[0_4px_14px_0_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.3)] transform hover:-translate-y-0.5 relative overflow-hidden group">
+          <span
+            class="absolute inset-0 w-full h-full bg-gradient-to-tr from-transparent via-white/40 to-transparent group-hover:animate-[pulse_1.5s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></span>
+          <span class="relative z-10 flex items-center justify-center space-x-2">
+            <span>Synthesize Resume</span>
+            <svg
+              class="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity group-hover:translate-x-1 duration-300"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Processing State -->
+        <div id="status-monitor" class="hidden mt-10 w-full max-w-xl flex-col items-center">
+          <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden relative shadow-inner border border-white/5">
+            <div id="status-fill"
+              class="h-full bg-white rounded-full transition-all duration-500 ease-out w-0 relative shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+              <div
+                class="absolute top-0 right-0 bottom-0 left-0 bg-gradient-to-r from-transparent via-white/40 to-transparent flex items-center justify-center animate-[pulse_2s_ease-in-out_infinite]">
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center space-x-3">
+            <div class="animate-spin h-4 w-4 border-2 border-brand-secondary border-t-white rounded-full"></div>
+            <span id="status-text" class="text-sm font-medium tracking-wide text-brand-secondary uppercase">Initiating
+              core models...</span>
+          </div>
+        </div>
+
+        <!-- Success State -->
+        <div id="result-section"
+          class="hidden w-full max-w-xl mt-10 p-8 rounded-2xl bg-gradient-to-b from-white/[0.08] to-transparent border border-white/[0.08]">
+          <div class="flex flex-col items-center text-center">
+            <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-medium text-white mb-2">Synthesis Complete</h3>
+            <p class="text-brand-secondary text-sm mb-8">The sophisticated standard has been generated.</p>
+
+            <div class="w-full flex flex-col sm:flex-row gap-4">
+              <a href="#" id="download-btn"
+                class="flex-1 bg-white text-black font-semibold py-3 px-6 rounded-xl hover:bg-gray-200 transition-colors shadow-lg flex items-center justify-center space-x-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3">
+                  </path>
+                </svg>
+                <span>Download Word Doc</span>
+              </a>
+              <button id="preview-toggle"
+                class="flex-1 bg-white/5 border border-white/10 text-white font-medium py-3 px-6 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-center space-x-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z">
+                  </path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span>Preview</span>
+              </button>
+            </div>
+
+            <a href="/"
+              class="mt-6 text-sm text-brand-secondary hover:text-white transition-colors underline decoration-white/30 underline-offset-4">Process
+              another candidate</a>
+          </div>
+        </div>
+
+        <!-- Main Container Closing -->
+      </div>
+  </main>
+
+  <!-- Document Preview Modal -->
+  <div id="preview-container"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex-col items-center justify-center p-4">
+    <div
+      class="bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-[0_10px_50px_rgba(0,0,0,0.8)] w-full max-w-5xl h-[90vh] flex flex-col overflow-hidden animate-fade-in-up rounded-2xl ring-1 ring-white/5">
+      <div class="flex items-center justify-between p-5 border-b border-white/5 bg-black/40">
+        <h4 class="text-white/90 font-medium tracking-wide text-sm uppercase">Document Preview</h4>
+        <button id="close-preview"
+          class="text-brand-secondary hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10 focus:outline-none">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="doc-preview" class="flex-1 overflow-auto bg-black/50 p-4 sm:p-8">
+        <!-- Built by docx-preview -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Typewriter Effect ---
+    const headingLines = [
+      "Elevate formatting.",
+      "Transform data.",
+      "Engineer the standard.",
+      "Redefine Intelligence."
+    ];
+
+    // We'll reveal it character by character, then cycle line by line infinitely
+    async function typeWriterEffect() {
+      const container = document.getElementById('typewriter-text');
+      const subtitle = document.getElementById('subtitle-text');
+
+      const typeLine = async (text) => {
+        container.innerHTML = '<span class="text-white font-[\'Playfair_Display\'] tracking-tight" style="font-size: 1.45em; line-height: 1;">zensar</span><span class="text-white/30 font-light mx-2">/</span>';
+        let currentText = '';
+        for (let i = 0; i < text.length; i++) {
+          currentText += text.charAt(i);
+          container.innerHTML = `<span class="text-white font-['Playfair_Display'] tracking-tight" style="font-size: 1.45em; line-height: 1;">zensar</span><span class="text-white/30 font-light mx-2">/</span><span style="font-size: 0.9em;">${currentText}</span><span class="typewriter-cursor"></span>`;
+          await new Promise(r => setTimeout(r, 60 + Math.random() * 40)); // Random typing speed
+        }
+      };
+
+      const eraseLine = async (text) => {
+        let currentText = text;
+        for (let i = text.length; i >= 0; i--) {
+          currentText = text.substring(0, i);
+          container.innerHTML = `<span class="text-white font-['Playfair_Display'] tracking-tight" style="font-size: 1.45em; line-height: 1;">zensar</span><span class="text-white/30 font-light mx-2">/</span><span style="font-size: 0.9em;">${currentText}</span><span class="typewriter-cursor"></span>`;
+          await new Promise(r => setTimeout(r, 20 + Math.random() * 10)); // Fast erase
+        }
+      };
+
+      // Fade in subtitle early
+      setTimeout(() => {
+        subtitle.classList.remove('opacity-0');
+        subtitle.classList.add('opacity-100');
+      }, 500);
+
+      // Infinite loop
+      while (true) {
+        for (let i = 0; i < headingLines.length; i++) {
+          await typeLine(headingLines[i]);
+          await new Promise(r => setTimeout(r, 2500)); // Pause to read
+          await eraseLine(headingLines[i]);
+          await new Promise(r => setTimeout(r, 400)); // Pause before next line
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', typeWriterEffect);
+
+    // --- DOM Elements & Logic ---
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const fileInfoContainer = document.getElementById('file-info-container');
+    const fileInfoText = document.getElementById('file-info');
+    const convertBtn = document.getElementById('convert-btn');
+    const clearFileBtn = document.getElementById('clear-file');
+
+    const statusMonitor = document.getElementById('status-monitor');
+    const statusText = document.getElementById('status-text');
+    const statusFill = document.getElementById('status-fill');
+
+    const resultSection = document.getElementById('result-section');
+    const downloadBtn = document.getElementById('download-btn');
+
+    const previewContainer = document.getElementById('preview-container');
+    const docPreview = document.getElementById('doc-preview');
+    const previewToggle = document.getElementById('preview-toggle');
+    const closePreview = document.getElementById('close-preview');
+
+    let selectedFile = null;
+
+    // Drag & Drop Handling
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+    });
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, () => {
+        dropZone.firstElementChild.classList.remove('opacity-0');
+        dropZone.firstElementChild.classList.add('opacity-100');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, () => {
+        dropZone.firstElementChild.classList.add('opacity-0');
+        dropZone.firstElementChild.classList.remove('opacity-100');
+      });
+    });
+
+    dropZone.addEventListener('drop', e => handleFiles(e.dataTransfer.files));
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+    function handleFiles(files) {
+      if (files.length > 0) {
+        selectedFile = files[0];
+        if (selectedFile.type !== 'application/pdf') {
+          alert('Format exception: Only PDF candidates are accepted for AI parsing.');
+          return;
+        }
+
+        // Show file info & trigger button
+        fileInfoText.textContent = selectedFile.name;
+        dropZone.classList.add('hidden');
+        fileInfoContainer.classList.remove('hidden');
+        fileInfoContainer.classList.add('flex');
+        convertBtn.classList.remove('hidden');
+        convertBtn.classList.add('block');
+      }
+    }
+
+    // Clear selection
+    clearFileBtn.addEventListener('click', () => {
+      selectedFile = null;
+      fileInput.value = '';
+      dropZone.classList.remove('hidden');
+      fileInfoContainer.classList.add('hidden');
+      fileInfoContainer.classList.remove('flex');
+      convertBtn.classList.add('hidden');
+      convertBtn.classList.remove('block');
+    });
+
+    // Submitting for conversion
+    convertBtn.addEventListener('click', async () => {
+      if (!selectedFile) return;
+
+      // Swap UI states: Hide info/btn, show status bar
+      fileInfoContainer.classList.add('hidden');
+      fileInfoContainer.classList.remove('flex');
+      convertBtn.classList.add('hidden');
+      statusMonitor.classList.remove('hidden');
+      statusMonitor.classList.add('flex');
+
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+
+      try {
+        const response = await fetch('/convert', { method: 'POST', body: formData });
+        const data = await response.json();
+
+        if (data.task_id) {
+          pollStatus(data.task_id);
+        } else if (data.error) {
+          throw new Error(data.error);
+        }
+      } catch (error) {
+        alert('Synthesis Failed: ' + error.message);
+        location.reload();
+      }
+    });
+
+    // Polling backend status
+    async function pollStatus(taskId) {
+      let simulatedProgress = 5;
+
+      const interval = setInterval(async () => {
+        try {
+          const res = await fetch(`/status/${taskId}`);
+          const data = await res.json();
+
+          // Smooth progress illusion
+          if (simulatedProgress < 95) simulatedProgress += (95 - simulatedProgress) * 0.1;
+          statusFill.style.width = `${Math.min(simulatedProgress, 98)}%`;
+
+          if (data.status === 'Completed' && data.download_url) {
+            clearInterval(interval);
+            finishSequence(data.download_url);
+          } else if (data.status && data.status.startsWith('Error')) {
+            clearInterval(interval);
+            alert("Error in processing: " + data.status);
+            location.reload();
+          } else {
+            // Update semantic text
+            statusText.innerText = (data.status || "Abstracting semantic tokens...").toUpperCase();
+          }
+        } catch (e) {
+          console.error("Polling error:", e);
+        }
+      }, 800);
+    }
+
+    // Success state
+    async function finishSequence(downloadUrl) {
+      statusFill.style.width = '100%';
+
+      setTimeout(async () => {
+        statusMonitor.classList.add('hidden');
+        statusMonitor.classList.remove('flex');
+
+        resultSection.classList.remove('hidden');
+        resultSection.classList.add('block');
+        resultSection.classList.add('animate-fade-in-up');
+
+        downloadBtn.href = downloadUrl;
+
+        // Background loading of Docx Preview
+        try {
+          const res = await fetch(downloadUrl);
+          const blob = await res.blob();
+
+          docx.renderAsync(blob, docPreview, null, {
+            inWrapper: false,
+            ignoreWidth: false,
+            ignoreHeight: false,
+            breakPages: true,
+            className: "docx-wrapper",
+            trimXmlDeclaration: true
+          });
+        } catch (e) {
+          console.error("Preview render failed:", e);
+        }
+      }, 600);
+    }
+
+    // Preview Toggles
+    previewToggle.addEventListener('click', () => {
+      previewContainer.classList.remove('hidden');
+      previewContainer.classList.add('flex');
+    });
+
+    closePreview.addEventListener('click', () => {
+      previewContainer.classList.add('hidden');
+      previewContainer.classList.remove('flex');
+    });
+
+  </script>
+</body>
+
+</html>

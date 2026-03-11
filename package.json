@@ -1,0 +1,29 @@
+{
+  "name": "resume-converter-next-gen-ai",
+  "version": "1.0.0",
+  "description": "A next-generation AI-powered resume parser and formatter. This tool extracts unstructured text from PDF resumes using OpenAI's `gpt-4o` model, intelligently categorizes skills and experiences, and perfectly formats the data into a standardized Microsoft Word (`.docx`) template.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betway-don/resume-converter-next-gen-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betway-don/resume-converter-next-gen-ai/issues"
+  },
+  "homepage": "https://github.com/betway-don/resume-converter-next-gen-ai#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1"
+  },
+  "dependencies": {
+    "@fontsource/dm-serif-display": "^5.2.8",
+    "concurrently": "^9.2.1"
+  }
+}

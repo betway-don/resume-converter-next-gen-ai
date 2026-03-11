@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-white antialiased min-h-screen flex flex-col items-center justify-center;
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.04), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.04), transparent 25%);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-brand-card backdrop-blur-xl border border-white/5 shadow-2xl rounded-3xl relative overflow-hidden;
+  }
+  
+  .glass-panel::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none;
+  }
+
+  /* Custom Scrollbar for document preview */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Custom Typewriter Cursor Animation */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: white;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Document Preview Overrides */
+.docx-wrapper {
+  background: white !important;
+  color: black !important;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  padding: 2rem !important;
+  margin: 0 auto !important;
+}
+.docx-wrapper * {
+  color: black !important;
+}
