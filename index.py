@@ -6,23 +6,28 @@ from docxtpl import DocxTemplate
 from docx import Document
 from docx.oxml.shared import OxmlElement
 from docx.oxml.ns import qn
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # --- CONFIGURATION ---
-# OPENAI_API_KEY = "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"
-OPENROUTER_API_KEY = "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"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
-# You can use any model from OpenRouter here e.g., "google/gemini-2.5-pro", "anthropic/claude-3.7-sonnet"
-MODEL_NAME = "google/gemini-2.5-pro"
+# You can use any model from OpenRouter or OpenAI
+MODEL_NAME = os.getenv("MODEL_NAME", "gpt-4o")
 
 TEMPLATE_PATH = "zensar-template.docx"
 OUTPUT_PATH = os.path.join("outputs", "Final_Generated_Resume.docx")
 PDF_PATH = "test.pdf"
 
-# client = OpenAI(api_key=OPENAI_API_KEY)
-client = OpenAI(
-  base_url="https://openrouter.ai/api/v1",
-  api_key=OPENROUTER_API_KEY,
-)
+if "gpt" in MODEL_NAME.lower() or "o1" in MODEL_NAME.lower() or "o3" in MODEL_NAME.lower():
+    client = OpenAI(api_key=OPENAI_API_KEY)
+else:
+    client = OpenAI(
+        base_url="https://openrouter.ai/api/v1",
+        api_key=OPENROUTER_API_KEY,
+    )
 
 
 # ==============================================================================
@@ -429,6 +434,10 @@ def sanitize_data(data):
             entry["project_name"] = org
         elif proj:
             entry["organisation"] = proj
+            
+        company_name = entry.get("organisation", "").strip()
+        if company_name and company_name.lower() not in entry.get("role", "").lower():
+            entry["role"] = f"{entry.get('role', '')} at {company_name}"
 
     return data
 
