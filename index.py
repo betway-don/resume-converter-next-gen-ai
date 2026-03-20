@@ -22,11 +22,11 @@ OUTPUT_PATH = os.path.join("outputs", "Final_Generated_Resume.docx")
 PDF_PATH = "test.pdf"
 
 if "gpt" in MODEL_NAME.lower() or "o1" in MODEL_NAME.lower() or "o3" in MODEL_NAME.lower():
-    client = OpenAI(api_key=OPENAI_API_KEY)
+    client = OpenAI(api_key=OPENAI_API_KEY or "dummy_key")
 else:
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
-        api_key=OPENROUTER_API_KEY,
+        api_key=OPENROUTER_API_KEY or "dummy_key",
     )
 
 
