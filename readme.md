@@ -1,3 +1,12 @@
+---
+title: Next Gen Resume Generator
+emoji: 📊
+colorFrom: pink
+colorTo: indigo
+sdk: docker
+pinned: false
+---
+
 # Zensar AI Resume Formatter
 
 A next-generation AI-powered resume parser and formatter. This tool extracts unstructured text from PDF resumes using OpenAI's `gpt-4o` model, intelligently categorizes skills and experiences, and perfectly formats the data into a standardized Microsoft Word (`.docx`) template.
